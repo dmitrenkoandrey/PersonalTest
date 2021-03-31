@@ -1,0 +1,106 @@
+﻿@model List<PersonalTest.Models.TabelWork>
+
+@{
+    ViewData["Title"] = "Работа с табелем";
+}
+
+    <div>
+        <div class="row"><div class="col-md-7"><h4>Работа с табелем</h4></div></div>
+        <div>
+            <div>Название табеля</div>
+            <div class="row">
+                <div class="col-md-8">@ViewBag.Tab.NumDataMaking</div>
+                <div class="col-md-3"><a class="mylink" asp-controller="Document" asp-action="TabResultAdd"><h5>Add</h5></a></div>
+            </div>
+        </div>
+        <table class="table table-sm table-striped table-info table-bordered" style="font-size:13px;" cellpadding="0" cellspacing="0">
+            <thead class="table-success">
+                <tr>
+                    <th>Код</th>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Год</th>
+                    <th>Месяц</th>
+                    <th>01</th>
+                    <th>02</th>
+                    <th>03</th>
+                    <th>04</th>
+                    <th>05</th>
+                    <th>06</th>
+                    <th>07</th>
+                    <th>08</th>
+                    <th>09</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>13</th>
+                    <th>14</th>
+                    <th>15</th>
+                    <th>16</th>
+                    <th>17</th>
+                    <th>18</th>
+                    <th>19</th>
+                    <th>20</th>
+                    <th>21</th>
+                    <th>22</th>
+                    <th>23</th>
+                    <th>24</th>
+                    <th>25</th>
+                    <th>26</th>
+                    <th>27</th>
+                    <th>28</th>
+                    <th>29</th>
+                    <th>30</th>
+                    <th>31</th>
+                </tr>
+            </thead>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@ViewBag.Count</td>
+                    <td>@app.Employee.Fio</td>
+                    <td>@app.Appoint.AppName</td>
+                    <td>@app.Year</td>
+                    <td>@app.Month</td>
+                    <td>@app.Day1</td>
+                    <td>@app.Day2</td>
+                    <td>@app.Day3</td>
+                    <td>@app.Day4</td>
+                    <td>@app.Day5</td>
+                    <td>@app.Day6</td>
+                    <td>@app.Day7</td>
+                    <td>@app.Day8</td>
+                    <td>@app.Day9</td>
+                    <td>@app.Day10</td>
+                    <td>@app.Day11</td>
+                    <td>@app.Day12</td>
+                    <td>@app.Day13</td>
+                    <td>@app.Day14</td>
+                    <td>@app.Day15</td>
+                    <td>@app.Day16</td>
+                    <td>@app.Day17</td>
+                    <td>@app.Day18</td>
+                    <td>@app.Day19</td>
+                    <td>@app.Day20</td>
+                    <td>@app.Day21</td>
+                    <td>@app.Day22</td>
+                    <td>@app.Day23</td>
+                    <td>@app.Day24</td>
+                    <td>@app.Day25</td>
+                    <td>@app.Day26</td>
+                    <td>@app.Day27</td>
+                    <td>@app.Day28</td>
+                    <td>@app.Day29</td>
+                    <td>@app.Day30</td>
+                    <td>@app.Day31</td>
+                    @*<td><a class="mylink" href="~/Document/TabelWorkEdit/@app.Id">Edit</a></td>
+                    <td><a class="mylink" href="~/Document/TabelWorkDel/@app.Id">Del</a></td>*@
+                </tr>
+                ViewBag.Count++;
+            }
+        </table>
+        <div class="col-md-offset-5 col-md-10">
+            <a href="/Document/Tabel" id="cancel" name="cancel" class="btn btn-warning">Выйти</a>
+        </div>
+    </div>
+

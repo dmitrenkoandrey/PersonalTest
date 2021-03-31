@@ -1,0 +1,54 @@
+﻿@model PersonalTest.Models.Tabel
+
+@{
+    ViewData["Title"] = "Выбранный табель";
+}
+
+<div>
+    <div class="row"><div class="col-md-8"><h4>Выбранный табель</h4></div></div>
+    <div class="row col-md-9">
+        <table class="table table-sm table-info table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th width="100px">Номер</th>
+                    <th width="200px">Дата составл.</th>
+                    <th width="100px">Год</th>
+                    <th width="100px">Месяц</th>
+                    <th width="200px">Подразделение</th>
+                    <th width="300px">Название табеля</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Model.Number</td>
+                <td>@Model.DateMaking.ToShortDateString()</td>
+                <td>@Model.Year</td>
+                <td>@Model.Month</td>
+                <td>@Model.Structure.StructName</td>
+                <td>@Model.NumDataMaking</td>
+                <td><a class="mylink" href="~/Document/EmployeeEdit/@Model.Id">Edit</a></td>
+                <td><a class="mylink" href="~/Document/EmpDel/@Model.Id">Del</a></td>
+            </tr>
+            @*@foreach (var app in Model)
+                {
+                    <tr>
+                        <td>@app.Number</td>
+                        <td>@app.Year</td>
+                        <td>@app.Month</td>
+                        <td>@app.DateMaking</td>
+                        <td>@app.Structure.StructName</td>
+                        <td><a class="mylink" href="~/Document/EmployeeEdit/@app.Id">Edit</a></td>
+                        <td><a class="mylink" href="~/Document/EmpDel/@app.Id">Del</a></td>
+                    </tr>
+                }*@
+
+        </table>
+
+        <div class="col-md-offset-5 col-md-10">
+            <a href="/Document/TabelWork/@Model.Id" name="tablework" class="btn btn-primary">Работа с табелем</a>
+            <a href="/Document/Tabel" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+        </div>
+
+    </div>
+</div>

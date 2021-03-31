@@ -1,0 +1,45 @@
+﻿@model List<PersonalTest.Models.Employee>
+@{
+    ViewData["Title"] = "Список сотрудников";
+}
+<div>
+    <div class="row"><div class="col-md-8"><h4>Список сотрудников</h4></div><div class="col-md-2"><a class="mylink" asp-controller="Document" asp-action="EmployeeAdd"><h5>Add</h5></a></div></div>
+    <div class="row col-md-9">
+        <table class="table table-sm table-info table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th width="100px">Таб №</th>
+                    <th width="200px">Фамилия</th>
+                    <th width="200px">Имя</th>
+                    <th width="200px">Отчество</th>
+                    <th width="800px">ФИО</th>
+                    <th width="100px">Дата пост.</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@app.Tab</td>
+                    <td>@app.LastName</td>
+                    <td>@app.FirstName</td>
+                    <td>@app.Patronymic</td>
+                    <td>@app.Fio</td>
+                    <td>@app.EntryDate.ToShortDateString()</td>
+                    <td><a class="mylink" href="~/Document/EmployeeEdit/@app.Id">Edit</a></td>
+                    <td><a class="mylink" href="~/Document/EmpDel/@app.Id">Del</a></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

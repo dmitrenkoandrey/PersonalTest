@@ -1,0 +1,172 @@
+﻿@model PersonalTest.Models.TabelWork
+@{
+    ViewData["Title"] = "Работа с табелем";
+}
+<h4>Работа с табелем</h4>
+<div class="jumbotron col-md-10">
+
+    @using (Html.BeginForm("TabAdd", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @*<div>@Html.HiddenFor(m => m.Id)</div>*@
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        @*<div class="col-md-4">*@
+            @*<div class="control-label">Название табеля</div>*@
+            @*<input type="text" asp-for="@Model.TabNum" value="@ViewBag.Tab"  class="form-control" />*@
+
+        @*</div>*@
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.TabelId, "Название табеля", new { @class = "control-label" })
+            <input type="text"  value="@ViewBag.Tab" class="form-control" />
+            @*@Html.TextBoxFor(m => m.TabelId, new { @class = "control-label", Value="@ViewBag.Tab" })*@
+            @*@Html.DropDownListFor(m => m.TabelId, ViewBag.Tab as SelectList, new { @class = "form-control" })*@
+            @*<span asp-validation-for="Tab" class="text-danger"></span>*@
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.EmployeeId, "ФИО", new { @class = "control-label" })
+
+
+            @Html.DropDownListFor(m => m.EmployeeId, ViewBag.Fio as SelectList, new { @class = "form-control" })
+            @*<span asp-validation-for="Fio" class="text-danger"></span>*@
+        </div>
+
+
+        <div class="col-md-5">
+            @Html.LabelFor(m => m.AppointId, "Должность", new { @class = "control-label" })
+
+            @Html.DropDownListFor(m => m.AppointId, ViewBag.App as SelectList, new { @class = "form-control" })
+            @*<span asp-validation-for="AppName" class="text-danger"></span>*@
+        </div>
+    </div>
+        <div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Year, "Год", new { @class = "control-label" })
+
+                    @Html.DropDownList("Year", ViewBag.Year as SelectList, new { @class = "form-control" })
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Month, "Месяц", new { @class = "control-label" })
+
+                    @Html.DropDownList("Month", ViewBag.Month as SelectList, new { @class = "form-control" })
+                    <span asp-validation-for="Month" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        @Html.LabelFor(m => m.Day1, "Дни")
+        <div class="row">
+            <div class="col-md-8">
+                <table border="0">
+                    <tr>
+                        @*<td>&nbsp;</td>*@
+                        @for (int i = 1; i <= 31; i++)
+                        {
+                            @if (i < 10)
+                            {
+                                <td>0</td>
+                                <td>@i</td>
+                                <td>&nbsp;</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                                <td>@i</td>
+                                <td>&nbsp;</td>
+                            }
+                        }
+                    </tr>
+                </table>
+     
+                <table border="0" cellpadding="1">
+                    <tr>
+                        <td><input type="text" name="Day1" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day2" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day3" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day4" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day5" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day6" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day7" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day8" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day9" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day10" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day11" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day12" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day13" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day14" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day15" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day16" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day17" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day18" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day19" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day20" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day21" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day22" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day23" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day24" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day25" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day26" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day27" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day28" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day29" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day30" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                        <td><input type="text" name="Day31" style="height:17px; width:19.6px;" /></td>
+                        <td></td><td></td><td></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" class="btn btn-primary">Создать</button>
+                <a href="/Document/Tabel" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.datetimepicker.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

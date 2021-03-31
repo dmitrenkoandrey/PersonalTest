@@ -1,0 +1,35 @@
+﻿@model PersonalTest.Models.Dismiss
+
+@{
+    ViewData["Title"] = "DismissEdit";
+}
+<h4>Увольнение</h4>
+<div class="jumbotron col-md-7">
+    @using (Html.BeginForm("DisEdit", "Handbook", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div>@Html.HiddenFor(m => m.Id)</div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Name, "Наименование", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" value="1" class="btn btn-primary">Сохранить</button>
+                <a href="/Handbook/Dismiss" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

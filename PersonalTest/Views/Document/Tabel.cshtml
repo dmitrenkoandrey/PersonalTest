@@ -1,0 +1,28 @@
+﻿@model PersonalTest.Controllers.TabelVar
+
+@{
+    ViewData["Title"] = "Табель";
+}
+
+<div>
+    <div class="row"><div class="col-md-7"><h4>Табель</h4></div></div>
+    <div class="row col-sm-8">
+
+        <div>
+            @using (Html.BeginForm("TabelSelect", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.RadioButton("TabVar" , "select", true)
+                <span>Выбрать табель</span> <br />
+                @Html.RadioButton("TabVar", "new", false)
+                <span>Создать новый табель</span> <br /><br />
+                <p><input type="submit" value="Выбрать" class="btn btn-primary" /></p>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

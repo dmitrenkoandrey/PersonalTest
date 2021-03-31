@@ -1,0 +1,100 @@
+﻿@model PersonalTest.Models.Employee
+
+@{
+    ViewData["Title"] = "EmployeeEdit";
+}
+
+<h4>Список сотрудников</h4>
+<div class="jumbotron col-md-7">
+    @using (Html.BeginForm("EmpEdit", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div>@Html.HiddenFor(m => m.Id)</div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Tab, "Табельный номер", new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Tab, new { @class = "form-control" })
+                <span asp-validation-for="Tab" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.LastName, "Фамилия", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.FirstName, "Имя", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Patronymic, "Отчество", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Patronymic, new { @class = "form-control" })
+                <span asp-validation-for="Patronymic" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Fio, "Фамилия и инициалы", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Fio, new { @class = "form-control" })
+                <span asp-validation-for="Fio" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.EntryDate, "Дата поступления", new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @*@Html.TextBoxFor(m => m.EntryDate, new { @class = "form-control" })*@
+                <input type="date" asp-for="@Model.EntryDate" class="form-control">
+                <span asp-validation-for="EntryDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" value="1" class="btn btn-primary">Сохранить</button>
+                <a href="/Document/Employee" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.datetimepicker.js"></script>*@
+    @*<script type="text/javascript">
+            //function setFormSubmitToFalse() { _spFormOnSubmitCalled = false; return true; }
+
+
+            $(function () {
+                $('calendar').datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    format: "dd.mm.yyyy",
+                    language: "ru"
+                });
+            });
+        </script>*@
+}

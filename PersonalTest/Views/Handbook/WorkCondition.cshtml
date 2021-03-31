@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PersonalTest.Models.WorkCondition>
+
+@{
+    ViewData["Title"] = "Условия труда";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-3"><h4>Условия труда</h4></div><div class="col-md-4">
+            <a class="mylink" asp-controller="Handbook" asp-action="WorkConditionAdd"><h5>Add</h5></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <table class="table table-sm table-info">
+                <thead class="table-success">
+                    <tr>
+                        <th>Код</th>
+                        <th>Наименование</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@ViewBag.Count</td>
+                        <td>@cat.Name</td>
+                        <td><a class="mylink" href="~/Handbook/WorkConditionEdit/@cat.Id">Edit</a></td>
+                        <td><a class="mylink" href="~/Handbook/WorkDel/@cat.Id">Del</a></td>
+                    </tr>
+                    ViewBag.Count++;
+                }
+            </table>
+
+        </div>
+    </div>
+</div>

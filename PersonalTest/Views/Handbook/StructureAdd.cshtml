@@ -1,0 +1,33 @@
+﻿@model PersonalTest.Models.Structure
+
+@{
+    ViewData["Title"] = "StructureAdd";
+}
+
+<h4>Структура</h4>
+<div class="jumbotron col-md-7">
+    @using (Html.BeginForm("StrAdd", "Handbook", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.StructName, "Наименование", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.StructName, new { @class = "form-control" })
+                <span asp-validation-for="StructName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" value="1" class="btn btn-primary">Добавить</button>
+                <a href="/Handbook/Structure" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

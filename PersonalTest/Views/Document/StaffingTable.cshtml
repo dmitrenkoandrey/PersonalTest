@@ -1,0 +1,46 @@
+﻿@model List<PersonalTest.Models.StaffingTable>
+
+@{
+    ViewData["Title"] = "Штатное расписание";
+}
+
+<div>
+    <div class="row"><div class="col-md-7"><h4>Штатное расписание</h4></div><div class="col-md-3"><a class="mylink" asp-controller="Document" asp-action="StaffingAdd"><h5>Add</h5></a></div></div>
+    <div class="row col-sm-8">
+        <table class="table table-sm table-info table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>Код</th>
+                    <th>Структурное подразделение</th>
+                    <th>Должность</th>
+                    <th>Ставка</th>
+                    <th>Кол-во</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@ViewBag.Count</td>
+                    <td>@app.StructName</td>
+                    <td>@app.AppointName</td>
+                    <td>@app.Salary</td>
+                    <td>@app.Quantity</td>
+                    <td><a class="mylink" href="~/Document/StaffingEdit/@app.Id">Edit</a></td>
+                    <td><a class="mylink" href="~/Document/StaffDel/@app.Id">Del</a></td>
+                </tr>
+                ViewBag.Count++;
+            }
+        </table>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

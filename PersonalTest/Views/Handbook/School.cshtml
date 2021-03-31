@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PersonalTest.Models.School>
+
+@{
+    ViewData["Title"] = "Учебные заведения";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-4"><h4>Учебные заведения</h4></div><div class="col-md-4">
+            <a class="mylink" asp-controller="Handbook" asp-action="SchoolAdd"><h5>Add</h5></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <table class="table table-sm table-info">
+                <thead class="table-success">
+                    <tr>
+                        <th>Код</th>
+                        <th>Наименование</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@ViewBag.Count</td>
+                        <td>@cat.Name</td>
+                        <td><a class="mylink" href="~/Handbook/SchoolEdit/@cat.Id">Edit</a></td>
+                        <td><a class="mylink" href="~/Handbook/SchDel/@cat.Id">Del</a></td>
+                    </tr>
+                    ViewBag.Count++;
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+

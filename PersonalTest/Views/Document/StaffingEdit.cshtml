@@ -1,0 +1,80 @@
+﻿@model PersonalTest.Models.StaffingTable
+@{
+    ViewData["Title"] = "StaffingEdit";
+}
+
+<h4>Штатное расписание</h4>
+<div class="jumbotron col-md-8">
+    @using (Html.BeginForm("StaffEdit", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div>@Html.HiddenFor(m => m.Id)</div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-6">
+                @*@Html.LabelFor(m => m.StructureId, "Структурное подразделение", new { @class = "control-label" })*@
+            </div>
+            <div class="col-md-8">
+                @*@Html.DropDownListFor(m => m.StructureId, ViewBag.Str as SelectList)*@
+                @*@Html.TextBoxFor(m => m.StructName, new { @class = "form-control" })*@
+                @*<span asp-validation-for="StructName" class="text-danger"></span>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @*@Html.LabelFor(m => m.AppointId, "Должность", new { @class = "control-label" })*@
+            </div>
+            <div class="col-md-6">
+                @*@Html.DropDownListFor(m => m.AppointId, ViewBag.App as SelectList)*@
+                @*@Html.TextBoxFor(m => m.AppointName, new { @class = "form-control" })*@
+                @*<span asp-validation-for="AppointName" class="text-danger"></span>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div>@Html.HiddenFor(m => m.AppointId)</div>
+            <div>@Html.HiddenFor(m => m.StructureId)</div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Salary, "Оклад", new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Salary, new { @class = "form-control calendar" })
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Quantity, "Количество", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control calendar" })
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" class="btn btn-primary">Сохранить</button>
+                <a href="/Document/StaffingTable" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.datetimepicker.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*<script type="text/javascript">
+            //function setFormSubmitToFalse() { _spFormOnSubmitCalled = false; return true; }
+
+            $(function () {
+                $(".calendar").datetimepicker({
+                    format: 'd.m.Y',
+                    inline: false,
+                    lang: 'ru',
+                    timepicker: false,
+                    formatDate: 'dd.mm.yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    closeOnDateSelect: true
+                });
+            });
+        </script>*@
+}

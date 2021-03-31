@@ -1,0 +1,76 @@
+﻿@model PersonalTest.Models.Tabel
+@{
+    ViewData["Title"] = "Новый табель";
+}
+<h4>Создать новый табель</h4>
+<div class="jumbotron col-md-7">
+    @using (Html.BeginForm("TabNew", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m, "Номер", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.DateMaking, "Дата составления", new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.DateMaking, new { @class = "form-control", type = "date" })
+                <span asp-validation-for="DateMaking" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Year, "Год", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("Year", ViewBag.Year as SelectList, new { @class = "form-control" })
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Month, "Месяц", new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("Month", ViewBag.Month as SelectList, new { @class = "form-control" })
+                <span asp-validation-for="Month" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.StructureId, "Для подразделения", new { @class = "control-label" })
+            </div>
+            <div class="col-md-8">
+                @Html.DropDownList("StructureId", ViewBag.Str as SelectList, new { @class = "form-control" })
+                @*@Html.TextBoxFor(m => , new { @class = "form-control" })*@
+                @*<span asp-validation-for="StructureId" class="text-danger"></span>*@
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" class="btn btn-primary">Создать</button>
+                <a href="/Document/Tabel" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+
+    }
+</div>
+
+    
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.datetimepicker.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

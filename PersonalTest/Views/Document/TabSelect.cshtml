@@ -1,0 +1,36 @@
+﻿@model PersonalTest.Models.Tabel
+@{
+    ViewData["Title"] = "TabSelect";
+}
+
+<h4>Выбрать табель</h4>
+<div class="jumbotron col-md-8">
+    @using (Html.BeginForm("TabResult", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.Number, "Список табелей", new { @class = "control-label" })
+            </div>
+            <div class="col-md-5">
+                @Html.DropDownList("Id", ViewBag.Tab as SelectList, new { @class = "form-control" } )
+                @*@Html.TextBoxFor(m => m.Number, new { @class = "form-control" })*@
+                @*<span asp-validation-for="Number" class="text-danger"></span>*@
+            </div>
+        </div>
+            <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <button id="submit" name="submit" class="btn btn-primary">Выбрать</button>
+                <a href="/Document/Tabel" id="cancel" name="cancel" class="btn btn-warning">Отменить</a>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.datetimepicker.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

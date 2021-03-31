@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PersonalTest.Models.Experience>
+
+@{
+    ViewData["Title"] = "Виды стажа";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-4"><h4>Виды стажа</h4></div><div class="col-md-4"><a class="mylink" asp-controller="Handbook" asp-action="ExperienceAdd"><h5>Add</h5></a></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <table class="table table-sm table-info">
+                <thead class="table-success">
+                    <tr>
+                        <th>Код</th>
+                        <th>Наименование</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@ViewBag.Count</td>
+                        <td>@cat.Name</td>
+                        <td><a class="mylink" href="~/Handbook/ExperienceEdit/@cat.Id">Edit</a></td>
+                        <td><a class="mylink" href="~/Handbook/ExpDel/@cat.Id">Del</a></td>
+                    </tr>
+                    ViewBag.Count++;
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
